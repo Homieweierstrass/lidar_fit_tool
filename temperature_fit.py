@@ -46,14 +46,16 @@ def fit_func(Q, a, b, c):
     T = np.full_like(Q, np.nan, dtype=float)
 
     with np.errstate(divide="ignore", invalid="ignore"):
-        inner = (b / (2 * c))**2 - (a - np.log(Q)) / c
-        mask = inner >= 0
+        A, B, C = c, b, a - np.log(Q)
+        D = B**2 - 4*A*C
+        mask = D >= 0
         if not np.any(mask):
             return T
 
-        sqrt_inner = np.sqrt(inner[mask])
-        denom = ( -b / (2 * c)) + sqrt_inner
-        T[mask] = np.where(denom != 0, 1.0 / denom, np.nan)
+        sqrtD = np.sqrt(D[mask])
+        y2 = (-B - sqrtD) / (2*A)
+        y = y2
+        T[mask] = np.where(y > 0, 1.0 / y, np.nan)
 
     return T
 
