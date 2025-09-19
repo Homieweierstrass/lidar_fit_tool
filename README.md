@@ -1,6 +1,8 @@
 # lidar_fit_tool
 
 Programm zum Kalibrieren von Temperatur- und Wasserdampf-daten aus preparierten NetCDF-Lidar Dateien.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/17f9a6fe-f43c-454b-9244-946903c1847d" />
+
 
 ## Description
 
