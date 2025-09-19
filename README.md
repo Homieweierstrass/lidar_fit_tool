@@ -24,6 +24,7 @@ Generelles:
 Mit Conda Umgebung:
 
 conda env create -f environment.yml
+
 conda activate lidar-fit
 
 ### Dependencies
